@@ -1,0 +1,16 @@
+/*
+Query for task 2a. Total spending (amount) by Department family 
+*/
+
+SELECT [Department family], SUM([AP Amount (£)]) as 'Total expenditure'
+FROM [ccc].[dbo].[TestData]
+GROUP BY [Department family]
+
+
+/*
+Query for task 2b. Total spending (amount) by Department family + Expense type.
+*/
+
+SELECT [Department family], [Expense Type], SUM([AP Amount (£)]) as 'Total expenditure'
+FROM [ccc].[dbo].[TestData]
+GROUP BY [Department family], [Expense Type]
