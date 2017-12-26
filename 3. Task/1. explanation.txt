@@ -1,0 +1,22 @@
+Main idea for creating and populating table from 3. task using any scripting language
+is implementing data structure that represents twodimensional array and than populate it according to criteria.
+
+- 1. step would be determing/extracting values of column/row headings (first row and first column) 
+
+Values of column/row headings would be all unique values of 'Expense area' and 'Expense Type' columns.
+Creating two empty arrays that represent lists of unique values.
+Iterating through source table, checking if values 'Expense area' and 'Expense Type' of particular row already exists
+ in above mentioned arrays. If not adding them.   
+
+- 2. step would be creating structure that could represent 2 dimensional array    
+
+The idea that led me was cross product of all unique values of 'Expense' area and 'Expense Type'.
+I tried to implement this in javascript through array of objects where each one has 3 properties.
+Two of them are values 'Expense area' and 'Expense Type' columns respectivly.
+Third one represent total sum of values from 'AP Amount (£)' column for given row/column value pair.
+
+- 3. step would be populating 'table' like structure from 2. step
+   
+Iterating through every row in source table, finding out what are the values of 'Expense area' and 'Expense Type' columns
+ and based on this values finding out correct object in correct created in 2. step. After that increasing 
+its third property by value of 'AP Amount (£)' column
