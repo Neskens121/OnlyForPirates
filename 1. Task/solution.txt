@@ -1,0 +1,38 @@
+For this three-part task I would propose solution that consists from three-parts.
+Architecture of solution is presented in the same folder as this file.
+First two parts would be two pieces of code written in Javascript (Node.js).
+Third part would be MongoDB database.
+
+- Extracting data from old and clunky SOAP API would be assigned to 
+the first piece of code written in Node.js. Its main functionalities would be:
+  
+  - Requesting data from old API on certain time interval  
+  - Making sure that we got requested data because old API is not always available or
+    responsive (if we didn't got data repeating request until we get them) 
+  - Parsing CSV file, making sure that all columns are present and in right order
+  - Adding time information to the data
+  - Sending request to database to add new record
+
+- Transforming data would be assigned to the second piece of code written in Node.js
+that would represent new API. Its main functionalities would be:
+  
+  - Receiving requests from users 
+  - Requesting data from database
+  - Transformnig data so that they have time dimension. For example database should respond with 
+    multiple records in this format
+    
+    blogId | views | clicks | time
+      1    |  10   |   3    | 26/12/2017
+      1    |  14   |   5    | 27/12/2017
+      1    |  16   |   9    | 28/12/2017
+    and each record should be transformed to represent 'daily' state instead of aggregate. For example
+    
+    blogId | views | clicks | time
+      1    |  4    |   2    | 27/12/2017
+      1    |  2    |   4    | 28/12/2017
+
+  - and finally put it in appropriate format (for example JSON) and sending to user 
+
+- Loading part of task would be assigned to MongoDB instead of some relationship database because of its ability 
+  to store documents, and that could be usefull in situation like this where we don't know precise structure of 
+  data that we are storing and how much clean or dirty the data really is. 
